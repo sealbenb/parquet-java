@@ -14,20 +14,19 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-
+#
 name: CI Hadoop 3
 
 on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        java: [ '1.8', '11', '17' ]
-        codes: [ 'uncompressed,brotli', 'gzip,snappy' ]
+        java: ["1.8", "11", "17"]
+        codes: ["uncompressed,brotli", "gzip,snappy"]
     name: Build Parquet with JDK ${{ matrix.java }} and ${{ matrix.codes }}
 
     steps:
